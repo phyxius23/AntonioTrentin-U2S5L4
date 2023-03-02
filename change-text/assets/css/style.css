@@ -1,0 +1,95 @@
+/*
+1 creazione del testo e formattazione di 1 parola da far ruotare
+2 inserimento delle altre 2 parole
+3 sovrapporre le 3 parole
+4 mostrare 1 parola e nascondere le altre 2
+5 animare 1 parola (fadein - fadeout con spostamento)
+6 animare le altre 2 parole
+7 ritardare progressivamente l'animazione delle altre 2 parole 
+*/
+
+main {
+   font-family: 'Bree Serif', serif;
+   color: rgba(0,0,0,.75);
+   max-width: 1200px;
+   margin-inline: auto;
+   justify-content: center;
+   align-items: center;
+   margin-top: 50px;
+}
+#testoAlternato {
+   border: 5px solid rgba(0,0,0,.6);
+   padding: 2rem 4rem;
+}
+#testoAlternato p {
+   font-size: 3rem;
+   line-height: 1.3;
+   position: relative;
+   overflow: hidden;
+
+}
+#testoAlternato p span {
+   margin-left: 17px;
+   color: #6a889c;
+}
+#testoAlternato p span i {
+   position: absolute;
+}
+#testoAlternato p span i:first-of-type{
+   bottom: 0;
+   animation: first 1.5s linear both;
+}
+#testoAlternato p span i:nth-child(2){
+   bottom: 200px;
+   animation: second 2.5s linear 1.5s;
+}
+#testoAlternato p span i:last-of-type{
+   bottom: 200px;
+   animation: third 1s linear 4s both;
+}
+
+/* il primo keyframes dura 1s in uscita */
+@keyframes first {
+   0% {
+      bottom: 0;
+      opacity: 1;
+   }
+   25% {
+      bottom: 0;
+      opacity: 1;
+   }
+   100% {
+      bottom: -100px;
+      opacity: 0;
+   }
+}
+/* il secondo keyframes dura 1s in entrata, 0.5s di attesa, 1s in uscita */
+@keyframes second {
+   0% {
+      bottom: 200px;
+      opacity: 0;
+   }
+   40% {
+      bottom: 0px;
+      opacity: 1;
+   }
+   60% {
+      bottom: 0px;
+      opacity: 1;
+   }
+   100% {
+      bottom: -100px;
+      opacity: 0;
+   }
+}
+/* il terzo keyframes dura 1s in entrata */
+@keyframes third {
+   0% {
+      bottom: 200px;
+      opacity: 0;
+   }
+   100% {
+      bottom: 0px;
+      opacity: 1;
+   }
+}
